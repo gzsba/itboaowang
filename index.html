@@ -357,26 +357,29 @@
             color: white;
         }
 
-        .social-links {
+        .contact-email {
             display: flex;
-            gap: 1rem;
+            align-items: center;
+            gap: 10px;
             margin-top: 1rem;
         }
 
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #334155;
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: background-color 0.3s;
+        .contact-email i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
         }
 
-        .social-links a:hover {
+        .contact-email a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-email a:hover {
+            color: #e0f2fe;
+            text-decoration: underline;
+        }
             background-color: var(--primary-color);
         }
 
@@ -455,7 +458,7 @@
                     <li><a href="#" class="active">首页</a></li>
                     <li><a href="#tools">AI工具</a></li>
                     <li><a href="#news">AI新闻</a></li>
-                    <li><a href="#about">关于我们</a></li>
+                    
                 </ul>
             </nav>
         </div>
@@ -528,18 +531,16 @@
                         <li><a href="#">首页</a></li>
                         <li><a href="#tools">AI工具</a></li>
                         <li><a href="#news">AI新闻</a></li>
-                        <li><a href="#about">关于我们</a></li>
+                        
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>联系我们</h3>
-                    <p>如有任何问题或建议，欢迎通过以下方式联系我们：</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fas fa-envelope"></i></a>
-                    </div>
+                    <p>如有任何问题或建议，欢迎通过邮箱联系我们：</p>
+                        <div class="contact-email">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:gaobo9871@gmail.com">gaobo9871@gmail.com</a>
+                        </div>
                 </div>
             </div>
             <div class="copyright">
