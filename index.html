@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI宝网 - 主流AI工具介绍与AI热点新闻</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #7c3aed;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --gray-color: #64748b;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 导航栏样式 */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* 英雄区域 */
+        .hero {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        }
+
+        /* 主要区域 */
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .section-title p {
+            color: var(--gray-color);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* AI工具卡片 */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .tool-header {
+            padding: 1.5rem;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .tool-icon {
+            font-size: 2rem;
+        }
+
+        .tool-content {
+            padding: 1.5rem;
+        }
+
+        .tool-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .tool-content p {
+            color: var(--gray-color);
+            margin-bottom: 1rem;
+        }
+
+        .tool-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background-color: #e0f2fe;
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .tool-link {
+            display: inline-block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .tool-link i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .tool-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* 新闻区域 */
+        .news-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .news-list {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .news-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-item h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .news-item p {
+            color: var(--gray-color);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray-color);
+            font-size: 0.8rem;
+        }
+
+        .news-category {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .news-sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .sidebar-title {
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .trending-list {
+            list-style: none;
+        }
+
+        .trending-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .trending-item:last-child {
+            border-bottom: none;
+        }
+
+        .trending-item a {
+            text-decoration: none;
+            color: var(--dark-color);
+            transition: color 0.3s;
+        }
+
+        .trending-item a:hover {
+            color: var(--primary-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #334155;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .news-container {
+                grid-template-columns: 1fr;
+            }
+
+            .news-sidebar {
+                order: -1;
+            }
+        }
+
+        /* 更新日期样式 */
+        .update-date {
+            text-align: center;
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            padding: 0.5rem;
+            background-color: #f1f5f9;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-robot"></i>
+                    <span>AI宝网</span>
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#tools">AI工具</a></li>
+                    <li><a href="#news">AI新闻</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="container">
+            <h1>探索AI世界，掌握未来科技</h1>
+            <p>AI宝网为您提供最全面的主流AI工具介绍和每日更新的AI热点新闻，帮助您了解人工智能领域的最新动态和发展趋势。</p>
+            <a href="#tools" class="cta-button">探索AI工具 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="container">
+        <!-- AI工具介绍区 -->
+        <section id="tools">
+            <div class="section-title">
+                <h2>主流AI工具介绍</h2>
+                <p>精选当前最受欢迎和实用的AI工具，涵盖文本生成、图像创作、代码编程等多个领域</p>
+            </div>
+
+            <div class="update-date">
+                <i class="fas fa-sync-alt"></i> 最后更新: <span id="currentDate">2026-02-03</span>
+            </div>
+
+            <div class="tools-grid" id="toolsGrid">
+                <!-- AI工具卡片将通过JavaScript动态加载 -->
+            </div>
+        </section>
+
+        <!-- AI热点新闻区 -->
+        <section id="news">
+            <div class="section-title">
+                <h2>AI热点新闻</h2>
+                <p>每日更新的AI领域最新动态、技术突破和行业趋势</p>
+            </div>
+
+            <div class="news-container">
+                <div class="news-list">
+                    <h3>今日AI新闻</h3>
+                    <div id="newsList">
+                        <!-- 新闻列表将通过JavaScript动态加载 -->
+                    </div>
+                </div>
+
+                <div class="news-sidebar">
+                    <h3 class="sidebar-title">热门话题</h3>
+                    <ul class="trending-list" id="trendingList">
+                        <!-- 热门话题将通过JavaScript动态加载 -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer id="about">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于AI宝网</h3>
+                    <p>AI宝网致力于为用户提供最新、最全面的AI工具介绍和热点新闻资讯，帮助大家更好地理解和应用人工智能技术。</p>
+                    <p>域名: itboaowang.com.cn</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#tools">AI工具</a></li>
+                        <li><a href="#news">AI新闻</a></li>
+                        <li><a href="#about">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>联系我们</h3>
+                    <p>如有任何问题或建议，欢迎通过以下方式联系我们：</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 AI宝网 (itboaowang.com.cn). 保留所有权利。</p>
+                <p>本网站内容每日更新，为您提供最新的AI资讯。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="daily-update.js"></script>
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+
+        // 设置当前日期
+        document.getElementById('currentDate').textContent = new Date().toISOString().split('T')[0];
+
+        // AI工具数据
+        const aiTools = [
+            {
+                id: 1,
+                name: "ChatGPT",
+                icon: "fas fa-comments",
+                description: "OpenAI开发的对话式AI模型，支持自然语言对话、文本生成、代码编写等多种功能。",
+                category: "文本生成",
+                tags: ["对话AI", "文本生成", "编程助手"],
+                link: "https://chat.openai.com"
+            },
+            {
+                id: 2,
+                name: "Midjourney",
+                icon: "fas fa-palette",
+                description: "强大的AI图像生成工具，通过文本描述创建高质量的艺术作品和图像。",
+                category: "图像创作",
+                tags: ["AI绘画", "图像生成", "艺术创作"],
+                link: "https://www.midjourney.com"
+            },
+            {
+                id: 3,
+                name: "GitHub Copilot",
+                icon: "fas fa-code",
+                description: "AI编程助手，在编写代码时提供智能建议和自动补全功能。",
+                category: "代码编程",
+                tags: ["编程助手", "代码补全", "开发工具"],
+                link: "https://github.com/features/copilot"
+            },
+            {
+                id: 4,
+                name: "DALL-E 3",
+                icon: "fas fa-image",
+                description: "OpenAI的图像生成模型，能够根据文本描述创建逼真且富有创意的图像。",
+                category: "图像创作",
+                tags: ["图像生成", "创意设计", "AI艺术"],
+                link: "https://openai.com/dall-e-3"
+            },
+            {
+                id: 5,
+                name: "Claude",
+                icon: "fas fa-brain",
+                description: "Anthropic开发的AI助手，专注于安全、可靠的对话和文本处理任务。",
+                category: "文本生成",
+                tags: ["对话AI", "文本分析", "安全AI"],
+                link: "https://claude.ai"
+            },
+            {
+                id: 6,
+                name: "Runway ML",
+                icon: "fas fa-film",
+                description: "创意AI工具集，提供视频编辑、图像生成、3D建模等多种AI创作功能。",
+                category: "多媒体创作",
+                tags: ["视频编辑", "创意工具", "多媒体"],
+                link: "https://runwayml.com"
+            }
+        ];
+
+        // AI新闻数据
+        const aiNews = [
+            {
+                id: 1,
+                title: "OpenAI发布新一代语言模型，推理能力大幅提升",
+                summary: "OpenAI近日发布了最新一代语言模型，在逻辑推理和复杂问题解决方面取得了显著突破。",
+                category: "技术突破",
+                date: "2026-02-02",
+                readTime: "3分钟"
+            },
+            {
+                id: 2,
+                title: "AI在医疗诊断领域取得新进展",
+                summary: "研究人员开发出能够准确识别早期癌症迹象的AI系统，准确率超过95%。",
+                category: "医疗AI",
+                date: "2026-02-01",
+                readTime: "4分钟"
+            },
+            {
+                id: 3,
+                title: "全球AI芯片市场竞争加剧",
+                summary: "多家科技巨头宣布推出新一代AI专用芯片，性能提升的同时能耗大幅降低。",
+                category: "行业动态",
+                date: "2026-01-31",
+                readTime: "5分钟"
+            },
+            {
+                id: 4,
+                title: "AI辅助教育工具受关注",
+                summary: "基于大语言模型的个性化学习助手正在改变传统教育模式，提升学习效率。",
+                category: "教育AI",
+                date: "2026-01-30",
+                readTime: "3分钟"
+            },
+            {
+                id: 5,
+                title: "欧盟通过新版AI监管法案",
+                summary: "欧盟议会通过了对高风险AI系统的严格监管法案，强调透明度和问责制。",
+                category: "政策法规",
+                date: "2026-01-29",
+                readTime: "4分钟"
+            }
+        ];
+
+        // 热门话题
+        const trendingTopics = [
+            "生成式AI发展趋势",
+            "多模态AI应用",
+            "AI伦理与安全",
+            "边缘计算AI",
+            "AI在金融领域的应用",
+            "自动驾驶技术进展",
+            "AI芯片技术突破",
+            "AI内容创作工具"
+        ];
+
+        // 渲染AI工具卡片
+        function renderAITools() {
+            const toolsGrid = document.getElementById('toolsGrid');
+            toolsGrid.innerHTML = '';
+            
+            aiTools.forEach(tool => {
+                const toolCard = document.createElement('div');
+                toolCard.className = 'tool-card';
+                toolCard.innerHTML = `
+                    <div class="tool-header">
+                        <i class="${tool.icon} tool-icon"></i>
+                        <div>
+                            <h3>${tool.name}</h3>
+                            <span>${tool.category}</span>
+                        </div>
+                    </div>
+                    <div class="tool-content">
+                        <p>${tool.description}</p>
+                        <div class="tool-tags">
+                            ${tool.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                        <a href="${tool.link}" target="_blank" class="tool-link">
+                            访问官网 <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                `;
+                toolsGrid.appendChild(toolCard);
+            });
+        }
+
+        // 渲染新闻列表
+        function renderNews() {
+            const newsList = document.getElementById('newsList');
+            newsList.innerHTML = '';
+            
+            aiNews.forEach(news => {
+                const newsItem = document.createElement('div');
+                newsItem.className = 'news-item';
+                newsItem.innerHTML = `
+                    <h3>${news.title}</h3>
+                    <p>${news.summary}</p>
+                    <div class="news-meta">
+                        <span class="news-category">${news.category}</span>
+                        <span>${news.date} · ${news.readTime}</span>
+                    </div>
+                `;
+                newsList.appendChild(newsItem);
+            });
+        }
+
+        // 渲染热门话题
+        function renderTrendingTopics() {
+            const trendingList = document.getElementById('trendingList');
+            trendingList.innerHTML = '';
+            
+            trendingTopics.forEach(topic => {
+                const listItem = document.createElement('li');
+                listItem.className = 'trending-item';
+                listItem.innerHTML = `<a href="#">${topic}</a>`;
+                trendingList.appendChild(listItem);
+            });
+        }
+
+        // 初始化渲染
+        document.addEventListener('DOMContentLoaded', function() {
+            renderAITools();
+            renderNews();
+            renderTrendingTopics();
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // 关闭移动端菜单
+                        document.getElementById('navLinks').classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // 模拟每日更新
+        function simulateDailyUpdate() {
+            const today = new Date().toISOString().split('T')[0];
+            const updateDateElement = document.getElementById('currentDate');
+            
+            // 检查是否需要更新日期
+            if (updateDateElement.textContent !== today) {
+                updateDateElement.textContent = today;
+                
+                // 这里可以添加实际的更新逻辑，比如从API获取最新数据
+                console.log('执行每日更新...');
+            }
+        }
+
+        // 页面加载时检查更新
+        simulateDailyUpdate();
+    </script>
+</body>
+</html>
