@@ -5,735 +5,425 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IT宝网 - AI科技前沿</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg: #f3f6fb;
+            --card: #ffffff;
+            --text: #1b2430;
+            --muted: #5d6b82;
+            --primary: #4f67ff;
+            --primary-2: #6f42c1;
+            --border: #e6ebf3;
+            --shadow: 0 12px 30px rgba(20, 33, 61, 0.08);
         }
-        
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f7fa;
+            font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
         }
-        
+
         .container {
-            max-width: 1200px;
+            max-width: 1080px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* 头部样式 */
+
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: linear-gradient(140deg, #5a74ff 0%, #7a4ed3 100%);
+            color: #fff;
+            padding: 44px 0 52px;
         }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
         }
-        
-        .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
+
+        .hero p {
+            opacity: 0.92;
+            max-width: 700px;
         }
-        
-        .date-display {
-            background: rgba(255,255,255,0.1);
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
+
+        .hero-meta {
+            margin-top: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.16);
+            font-size: 0.92rem;
         }
-        
-        /* 导航样式 */
+
         nav {
-            background: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
         }
-        
-        .nav-container {
+
+        .nav-wrap {
+            height: 60px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        .nav-links a {
+
+        .brand {
+            font-weight: 700;
+            color: var(--text);
             text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
         }
-        
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 14px;
+        }
+
+        .nav-links a {
+            color: #32425c;
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 6px 10px;
+            border-radius: 8px;
+        }
+
         .nav-links a:hover {
-            color: #667eea;
-            background: rgba(102, 126, 234, 0.1);
+            background: #edf1ff;
+            color: var(--primary);
         }
-        
-        /* 主要内容区域 */
-        main {
-            padding: 3rem 0;
+
+        main { padding: 34px 0 52px; }
+
+        .section {
+            margin-bottom: 32px;
         }
-        
+
         .section-title {
-            font-size: 1.8rem;
-            color: #333;
-            margin-bottom: 2rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 3px solid #667eea;
-            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
         }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: #764ba2;
+
+        .section-title h2 {
+            font-size: 1.35rem;
         }
-        
-        /* AI热点新闻区域 */
+
+        .section-title span {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 14px;
         }
-        
+
         .news-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            padding: 16px;
         }
-        
-        .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+
+        .news-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            line-height: 1.5;
         }
-        
-        .news-content {
-            padding: 1.5rem;
+
+        .news-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 14px;
         }
-        
-        .news-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-        
-        .news-desc {
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        
+
         .news-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.9rem;
-            color: #888;
+            gap: 8px;
+            font-size: 0.86rem;
+            color: #7d8aa0;
         }
-        
-        .read-more {
-            color: #667eea;
+
+        .news-meta a {
+            color: var(--primary);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
+            font-weight: 600;
+            white-space: nowrap;
         }
-        
-        .read-more:hover {
-            color: #764ba2;
-            text-decoration: underline;
+
+        .tools-wrap {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            padding: 16px;
         }
-        
-        /* AI工具区域 */
+
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
         }
-        
-        .tool-card {
-            background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-        }
-        
-        .tool-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        
-        .tool-card:hover .tool-link {
-            color: white;
-        }
-        
-        .tool-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .tool-name {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .tool-desc {
-            color: #666;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-        
-        .tool-card:hover .tool-desc {
-            color: rgba(255,255,255,0.9);
-        }
-        
+
         .tool-link {
-            color: #667eea;
+            display: block;
             text-decoration: none;
-            font-weight: 500;
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            border: 2px solid #667eea;
-            border-radius: 25px;
-            transition: all 0.3s;
-        }
-        
-        .tool-card:hover .tool-link {
-            border-color: white;
-            background: rgba(255,255,255,0.2);
-        }
-        
-        /* 友情链接区域 */
-        .friend-link {
-            background: white;
+            color: #243147;
+            border: 1px solid var(--border);
             border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            margin-bottom: 3rem;
+            padding: 10px 12px;
+            background: #fbfcff;
+            transition: all 0.2s ease;
         }
-        
-        .friend-link h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #333;
+
+        .tool-link:hover {
+            border-color: #d7dfff;
+            background: #f2f5ff;
+            transform: translateY(-1px);
         }
-        
-        .friend-link p {
-            color: #666;
-            margin-bottom: 1.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+
+        .tool-name {
+            font-size: 0.96rem;
+            font-weight: 600;
         }
-        
-        .friend-link-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            padding: 0.8rem 2.5rem;
-            border-radius: 25px;
-            font-weight: 500;
-            transition: transform 0.3s, box-shadow 0.3s;
+
+        .tool-desc {
+            color: #6d7990;
+            font-size: 0.84rem;
+            margin-top: 3px;
         }
-        
-        .friend-link-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+
+        .tip-card {
+            margin-top: 14px;
+            background: #eef2ff;
+            border: 1px solid #dce4ff;
+            color: #32425c;
+            border-radius: 12px;
+            padding: 12px 14px;
+            font-size: 0.92rem;
         }
-        
-        /* 页脚样式 */
+
         footer {
-            background: #333;
-            color: white;
-            padding: 3rem 0 1.5rem;
+            border-top: 1px solid var(--border);
+            padding: 22px 0 34px;
             text-align: center;
-        }
-        
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #667eea;
-        }
-        
-        .copyright {
-            color: #888;
+            color: #7a879b;
             font-size: 0.9rem;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #444;
+            background: #f7f9fd;
         }
-        
-        /* 响应式设计 */
+
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1rem;
-            }
-            
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .tools-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-        
-        /* 动画效果 */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.6s ease-out;
+            .hero h1 { font-size: 1.6rem; }
+            .nav-wrap { height: auto; padding: 10px 0; flex-direction: column; gap: 8px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
         }
     </style>
 </head>
 <body>
-    <!-- 头部 -->
     <header>
-        <div class="container">
-            <div class="logo">IT宝网</div>
-            <div class="tagline">探索人工智能前沿，引领科技未来</div>
-            <div class="date-display" id="currentDate">2026年3月11日 星期三</div>
+        <div class="container hero">
+            <h1>IT宝网 · AI热点与工具精选</h1>
+            <p>聚焦本周值得关注的 AI 产业动态和高频实用工具，减少噪音，快速掌握关键信息。</p>
+            <div class="hero-meta">
+                <span>更新日期：</span>
+                <strong id="currentDate">2026年3月24日</strong>
+            </div>
         </div>
     </header>
 
-    <!-- 导航 -->
     <nav>
-        <div class="container nav-container">
-            <div class="logo" style="font-size: 1.5rem; color: #333;">IT宝网</div>
+        <div class="container nav-wrap">
+            <a class="brand" href="#">IT宝网</a>
             <ul class="nav-links">
-                <li><a href="#news">AI热点新闻</a></li>
-                <li><a href="#tools">AI工具推荐</a></li>
-                <li><a href="#openclaw">🦞 OpenClaw</a></li>
-                <li><a href="#about">关于我们</a></li>
+                <li><a href="#news">AI热点</a></li>
+                <li><a href="#tools">精选工具</a></li>
+                <li><a href="#openclaw">OpenClaw 专题</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- 主要内容 -->
     <main class="container">
-        <!-- AI热点新闻 -->
-        <section id="news" class="fade-in">
-            <h2 class="section-title">🔥 2026年3月24日 AI热点新闻</h2>
+        <section id="news" class="section">
+            <div class="section-title">
+                <h2>AI热点新闻</h2>
+                <span>资讯优先 · 精简阅读</span>
+            </div>
             <div class="news-grid">
                 <article class="news-card">
-                    <div class="news-content">
-                        <h3 class="news-title">微软将 Anthropic Claude 深度接入 Microsoft 365 Copilot</h3>
-                        <p class="news-desc">微软在 3 月更新中宣布将 Anthropic 模型能力引入 Copilot 生态，并推出可执行多步骤任务的 Copilot Cowork，企业级 AI 助手竞争进入“多模型+多智能体”阶段。</p>
-                        <div class="news-meta">
-                            <span>来源：Reuters / Tech Monitor</span>
-                            <a href="http://polling.reuters.com/business/microsoft-taps-anthropic-copilot-cowork-push-ai-agents-2026-03-09/" class="read-more" target="_blank">阅读原文 →</a>
-                        </div>
+                    <h3>微软将 Anthropic Claude 深度接入 Microsoft 365 Copilot</h3>
+                    <p>微软在 3 月更新中宣布将 Anthropic 模型能力引入 Copilot 生态，并推出可执行多步骤任务的 Copilot Cowork，企业级 AI 助手竞争进入“多模型+多智能体”阶段。</p>
+                    <div class="news-meta">
+                        <span>Reuters / Tech Monitor</span>
+                        <a href="http://polling.reuters.com/business/microsoft-taps-anthropic-copilot-cowork-push-ai-agents-2026-03-09/" target="_blank">阅读原文</a>
                     </div>
                 </article>
 
                 <article class="news-card">
-                    <div class="news-content">
-                        <h3 class="news-title">OpenAI 发布 GPT-5.4，重点面向企业级推理与自动化场景</h3>
-                        <p class="news-desc">多家媒体披露 OpenAI 在 2026 年 3 月发布新一代模型 GPT-5.4，强调复杂任务推理、代码能力与企业工作流自动执行能力，进一步强化生产级 AI Agent 能力。</p>
-                        <div class="news-meta">
-                            <span>来源：Fortune</span>
-                            <a href="https://fortune.com/2026/03/05/openai-new-model-gpt5-4-enterprise-agentic-anthropic" class="read-more" target="_blank">阅读原文 →</a>
-                        </div>
+                    <h3>OpenAI 发布 GPT-5.4，面向企业级推理与自动化场景</h3>
+                    <p>多家媒体披露 OpenAI 在 2026 年 3 月发布新一代模型 GPT-5.4，强调复杂任务推理、代码能力与企业工作流自动执行能力。</p>
+                    <div class="news-meta">
+                        <span>Fortune</span>
+                        <a href="https://fortune.com/2026/03/05/openai-new-model-gpt5-4-enterprise-agentic-anthropic" target="_blank">阅读原文</a>
                     </div>
                 </article>
 
                 <article class="news-card">
-                    <div class="news-content">
-                        <h3 class="news-title">NVIDIA 发布 Vera Rubin 平台，主打高吞吐低成本推理</h3>
-                        <p class="news-desc">NVIDIA 公布新一代 Vera Rubin AI 平台，覆盖训练与推理基础设施，面向大规模智能体和企业部署场景，官方称其在性能/能效和单 Token 成本方面显著提升。</p>
-                        <div class="news-meta">
-                            <span>来源：VentureBeat</span>
-                            <a href="http://venturebeat.com/ai/nvidia-introduces-vera-rubin-a-seven-chip-ai-platform-with-openai-anthropic" class="read-more" target="_blank">阅读原文 →</a>
-                        </div>
+                    <h3>NVIDIA 发布 Vera Rubin 平台，主打高吞吐低成本推理</h3>
+                    <p>NVIDIA 公布新一代 Vera Rubin AI 平台，覆盖训练与推理基础设施，面向大规模智能体和企业部署场景。</p>
+                    <div class="news-meta">
+                        <span>VentureBeat</span>
+                        <a href="http://venturebeat.com/ai/nvidia-introduces-vera-rubin-a-seven-chip-ai-platform-with-openai-anthropic" target="_blank">阅读原文</a>
                     </div>
                 </article>
 
                 <article class="news-card">
-                    <div class="news-content">
-                        <h3 class="news-title">NVIDIA 开源 Physical AI Data Factory Blueprint，提速机器人数据生产</h3>
-                        <p class="news-desc">NVIDIA 推出面向机器人、自动驾驶和视觉智能体的数据工厂参考架构，联合多家生态伙伴，降低物理世界 AI 训练数据生成与管理门槛。</p>
-                        <div class="news-meta">
-                            <span>来源：NVIDIA Newsroom</span>
-                            <a href="https://nvidianews.nvidia.com/news/nvidia-announces-open-physical-ai-data-factory-blueprint-to-accelerate-robotics-vision-ai-agents-and-autonomous-vehicle-development/" class="read-more" target="_blank">阅读原文 →</a>
-                        </div>
+                    <h3>NVIDIA 开源 Physical AI Data Factory Blueprint</h3>
+                    <p>面向机器人、自动驾驶和视觉智能体的数据工厂参考架构发布，降低物理世界 AI 训练数据生成与管理门槛。</p>
+                    <div class="news-meta">
+                        <span>NVIDIA Newsroom</span>
+                        <a href="https://nvidianews.nvidia.com/news/nvidia-announces-open-physical-ai-data-factory-blueprint-to-accelerate-robotics-vision-ai-agents-and-autonomous-vehicle-development/" target="_blank">阅读原文</a>
                     </div>
                 </article>
 
                 <article class="news-card">
-                    <div class="news-content">
-                        <h3 class="news-title">英伟达 Nemotron 3 系列模型发布，聚焦企业级智能体场景</h3>
-                        <p class="news-desc">2026 年 3 月，英伟达发布 Nemotron 3 相关模型与方案，强调代码、工具调用、多智能体协同等企业应用能力，推动“模型+基础设施”一体化落地。</p>
-                        <div class="news-meta">
-                            <span>来源：新浪财经</span>
-                            <a href="https://finance.sina.com.cn/jjxw/2026-03-12/doc-inhqsnwu5041272.shtml" class="read-more" target="_blank">阅读原文 →</a>
-                        </div>
+                    <h3>英伟达 Nemotron 3 系列模型发布，聚焦企业级智能体场景</h3>
+                    <p>2026 年 3 月发布的 Nemotron 3 相关模型强调代码、工具调用、多智能体协同等企业应用能力。</p>
+                    <div class="news-meta">
+                        <span>新浪财经</span>
+                        <a href="https://finance.sina.com.cn/jjxw/2026-03-12/doc-inhqsnwu5041272.shtml" target="_blank">阅读原文</a>
                     </div>
                 </article>
 
                 <article class="news-card">
-                    <div class="news-content">
-                        <h3 class="news-title">华为昇腾新一代 AI 加速卡发布，国产算力生态继续扩张</h3>
-                        <p class="news-desc">国内媒体报道华为昇腾发布新一代 AI 加速卡产品，围绕大模型训练与推理场景优化性能与成本，国产 AI 基础设施竞争力进一步提升。</p>
-                        <div class="news-meta">
-                            <span>来源：新浪新闻</span>
-                            <a href="https://www.sina.cn/news/detail/5279346530194442.html" class="read-more" target="_blank">阅读原文 →</a>
-                        </div>
+                    <h3>华为昇腾新一代 AI 加速卡发布，国产算力生态持续扩张</h3>
+                    <p>媒体报道显示新一代昇腾产品围绕大模型训练与推理场景优化性能与成本，国产 AI 基础设施竞争力继续提升。</p>
+                    <div class="news-meta">
+                        <span>新浪新闻</span>
+                        <a href="https://www.sina.cn/news/detail/5279346530194442.html" target="_blank">阅读原文</a>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- AI工具推荐 -->
-        <section id="tools" class="fade-in">
-            <h2 class="section-title">🛠️ 主流AI工具推荐</h2>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-icon">🤖</div>
-                    <h3 class="tool-name">ChatGPT</h3>
-                    <p class="tool-desc">OpenAI旗下的对话式AI助手，支持多模态和高级数据分析</p>
-                    <a href="https://chat.openai.com" class="tool-link" target="_blank">立即使用</a>
+        <section id="tools" class="section">
+            <div class="section-title">
+                <h2>精选AI工具</h2>
+                <span>已移除部分过时/低频展示项</span>
+            </div>
+            <div class="tools-wrap">
+                <div class="tools-grid">
+                    <a class="tool-link" href="https://chat.openai.com" target="_blank">
+                        <div class="tool-name">ChatGPT</div>
+                        <div class="tool-desc">通用对话、写作与分析</div>
+                    </a>
+                    <a class="tool-link" href="https://claude.ai" target="_blank">
+                        <div class="tool-name">Claude</div>
+                        <div class="tool-desc">长文本理解与高质量写作</div>
+                    </a>
+                    <a class="tool-link" href="https://gemini.google.com" target="_blank">
+                        <div class="tool-name">Gemini</div>
+                        <div class="tool-desc">Google 生态整合能力强</div>
+                    </a>
+                    <a class="tool-link" href="https://www.deepseek.com" target="_blank">
+                        <div class="tool-name">DeepSeek</div>
+                        <div class="tool-desc">代码与中文场景表现突出</div>
+                    </a>
+                    <a class="tool-link" href="https://tongyi.aliyun.com" target="_blank">
+                        <div class="tool-name">通义千问</div>
+                        <div class="tool-desc">企业和开发场景覆盖广</div>
+                    </a>
+                    <a class="tool-link" href="https://yiyan.baidu.com" target="_blank">
+                        <div class="tool-name">文心一言</div>
+                        <div class="tool-desc">本土化能力与生态联动</div>
+                    </a>
+                    <a class="tool-link" href="https://github.com/features/copilot" target="_blank">
+                        <div class="tool-name">GitHub Copilot</div>
+                        <div class="tool-desc">AI 编程助手</div>
+                    </a>
+                    <a class="tool-link" href="https://cursor.com" target="_blank">
+                        <div class="tool-name">Cursor</div>
+                        <div class="tool-desc">AI 原生代码编辑器</div>
+                    </a>
+                    <a class="tool-link" href="https://www.perplexity.ai" target="_blank">
+                        <div class="tool-name">Perplexity</div>
+                        <div class="tool-desc">联网搜索与溯源问答</div>
+                    </a>
                 </div>
-
-                <div class="tool-card">
-                    <div class="tool-icon">🧠</div>
-                    <h3 class="tool-name">Claude</h3>
-                    <p class="tool-desc">Anthropic打造的AI助手，注重安全性和长文本理解能力</p>
-                    <a href="https://claude.ai" class="tool-link" target="_blank">立即使用</a>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-icon">💎</div>
-                    <h3 class="tool-name">Gemini</h3>
-                    <p class="tool-desc">Google推出的AI模型，深度整合Google搜索与应用生态</p>
-                    <a href="https://gemini.google.com" class="tool-link" target="_blank">立即使用</a>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-icon">🔍</div>
-                    <h3 class="tool-name">DeepSeek</h3>
-                    <p class="tool-desc">深度求索推出的AI模型，专注开源与性价比最优解</p>
-                    <a href="https://www.deepseek.com" class="tool-link" target="_blank">立即使用</a>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-icon">💬</div>
-                    <h3 class="tool-name">文心一言</h3>
-                    <p class="tool-desc">百度推出的AI对话模型，支持原生多模态统一理解</p>
-                    <a href="https://yiyan.baidu.com" class="tool-link" target="_blank">立即使用</a>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-icon">🌟</div>
-                    <h3 class="tool-name">通义千问</h3>
-                    <p class="tool-desc">阿里云推出的AI模型，长文本理解与多模态应用领先</p>
-                    <a href="https://tongyi.aliyun.com" class="tool-link" target="_blank">立即使用</a>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-icon">🎨</div>
-                    <h3 class="tool-name">Midjourney</h3>
-                    <p class="tool-desc">顶尖AI绘画工具，以艺术风格著称，生成高质量图像</p>
-                    <a href="https://www.midjourney.com" class="tool-link" target="_blank">立即使用</a>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-icon">🖼️</div>
-                    <h3 class="tool-name">DALL·E 3</h3>
-                    <p class="tool-desc">OpenAI文生图模型，精确理解复杂提示词，集成于ChatGPT</p>
-                    <a href="https://openai.com/dall-e-3" class="tool-link" target="_blank">立即使用</a>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-icon">🎬</div>
-                    <h3 class="tool-name">Sora</h3>
-                    <p class="tool-desc">OpenAI推出的AI视频生成模型，从文字描述生成逼真视频</p>
-                    <a href="https://sora.com" class="tool-link" target="_blank">立即使用</a>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-icon">🎵</div>
-                    <h3 class="tool-name">Suno</h3>
-                    <p class="tool-desc">AI音乐创作平台，输入文字即可生成完整的歌曲和旋律</p>
-                    <a href="https://suno.com" class="tool-link" target="_blank">立即使用</a>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-icon">💻</div>
-                    <h3 class="tool-name">GitHub Copilot</h3>
-                    <p class="tool-desc">AI编程助手，深度集成IDE，智能补全代码与生成函数</p>
-                    <a href="https://github.com/features/copilot" class="tool-link" target="_blank">立即使用</a>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-icon">🦞</div>
-                    <h3 class="tool-name">OpenClaw</h3>
-                    <p class="tool-desc">开源AI智能体网关，自托管连接20+聊天平台，隐私优先</p>
-                    <a href="https://github.com/openclaw/openclaw" class="tool-link" target="_blank">立即使用</a>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-icon">📝</div>
-                    <h3 class="tool-name">Notion AI</h3>
-                    <p class="tool-desc">集成于Notion的AI写作助手，智能总结、翻译与内容生成</p>
-                    <a href="https://www.notion.so/product/ai" class="tool-link" target="_blank">立即使用</a>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-icon">🌐</div>
-                    <h3 class="tool-name">Perplexity</h3>
-                    <p class="tool-desc">AI搜索引擎，实时联网检索并附带来源引用的智能问答</p>
-                    <a href="https://www.perplexity.ai" class="tool-link" target="_blank">立即使用</a>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-icon">🏢</div>
-                    <h3 class="tool-name">Cursor</h3>
-                    <p class="tool-desc">AI原生代码编辑器，深度集成大模型，重新定义编程体验</p>
-                    <a href="https://cursor.com" class="tool-link" target="_blank">立即使用</a>
+                <div class="tip-card">
+                    已从首页移除部分旧展示项（如 Sora、Suno、Notion AI 等），后续可按你的偏好继续做“按月轮换”。
                 </div>
             </div>
         </section>
 
-        <!-- 友情链接 -->
-        <!-- 关于我们 -->
-        
-        <!-- OpenClaw专题 -->
-        <section id="openclaw" class="fade-in">
-            <h2 class="section-title">🦞 OpenClaw — 开源AI智能体网关</h2>
-            <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); border-radius: 15px; padding: 2.5rem; color: white; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-                    <span style="font-size: 3rem;">🦞</span>
-                    <div>
-                        <h3 style="font-size: 1.8rem; margin-bottom: 0.3rem; color: #e94560;">OpenClaw</h3>
-                        <p style="opacity: 0.8; font-size: 0.95rem;">你的私人AI助手，在你自己的设备上运行</p>
-                    </div>
-                </div>
-                <p style="line-height: 1.8; margin-bottom: 1.5rem; opacity: 0.9; font-size: 1.05rem;">
-                    OpenClaw 是一个<strong style="color: #e94560;">自托管开源网关</strong>，将你常用的聊天应用（WhatsApp、Telegram、Discord、飞书、微信等<strong>20+平台</strong>）连接到AI智能体。运行在你自己的设备上，数据完全由你掌控——无需依赖任何第三方托管服务。
+        <section id="openclaw" class="section">
+            <div class="section-title">
+                <h2>OpenClaw 专题</h2>
+                <span>开源 AI 智能体网关</span>
+            </div>
+            <div class="tools-wrap">
+                <p style="color:#5d6b82; margin-bottom:12px;">
+                    OpenClaw 是自托管开源网关，可将多个聊天平台连接到 AI 智能体，强调隐私优先与可扩展能力。
                 </p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-                    <div style="background: rgba(255,255,255,0.08); border-radius: 10px; padding: 1.2rem; text-align: center;">
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔒</div>
-                        <h4 style="color: #e94560; margin-bottom: 0.3rem;">隐私优先</h4>
-                        <p style="font-size: 0.85rem; opacity: 0.8;">自托管运行，数据不经过第三方</p>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.08); border-radius: 10px; padding: 1.2rem; text-align: center;">
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">💬</div>
-                        <h4 style="color: #e94560; margin-bottom: 0.3rem;">多平台统一</h4>
-                        <p style="font-size: 0.85rem; opacity: 0.8;">一个网关连接WhatsApp/Telegram/Discord等</p>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.08); border-radius: 10px; padding: 1.2rem; text-align: center;">
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🧩</div>
-                        <h4 style="color: #e94560; margin-bottom: 0.3rem;">技能扩展</h4>
-                        <p style="font-size: 0.85rem; opacity: 0.8;">ClawHub市场数百技能，即装即用</p>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.08); border-radius: 10px; padding: 1.2rem; text-align: center;">
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚡</div>
-                        <h4 style="color: #e94560; margin-bottom: 0.3rem;">智能体原生</h4>
-                        <p style="font-size: 0.85rem; opacity: 0.8;">支持工具调用、子智能体、工作流编排</p>
-                    </div>
+                <div class="tools-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                    <a class="tool-link" href="https://github.com/openclaw/openclaw" target="_blank">
+                        <div class="tool-name">GitHub 仓库</div>
+                        <div class="tool-desc">查看代码、版本与路线图</div>
+                    </a>
+                    <a class="tool-link" href="https://docs.openclaw.ai" target="_blank">
+                        <div class="tool-name">官方文档</div>
+                        <div class="tool-desc">安装、配置与使用指南</div>
+                    </a>
+                    <a class="tool-link" href="https://clawhub.com" target="_blank">
+                        <div class="tool-name">ClawHub</div>
+                        <div class="tool-desc">扩展技能市场</div>
+                    </a>
                 </div>
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-                    <a href="https://github.com/openclaw/openclaw" target="_blank" style="display: inline-block; background: #e94560; color: white; text-decoration: none; padding: 0.8rem 2rem; border-radius: 25px; font-weight: 600; transition: all 0.3s;">⭐ GitHub 仓库</a>
-                    <a href="https://docs.openclaw.ai" target="_blank" style="display: inline-block; background: rgba(255,255,255,0.15); color: white; text-decoration: none; padding: 0.8rem 2rem; border-radius: 25px; font-weight: 600; transition: all 0.3s;">📖 官方文档</a>
-                    <a href="https://clawhub.com" target="_blank" style="display: inline-block; background: rgba(255,255,255,0.15); color: white; text-decoration: none; padding: 0.8rem 2rem; border-radius: 25px; font-weight: 600; transition: all 0.3s;">🧩 ClawHub 技能市场</a>
-                    <a href="https://discord.gg/clawd" target="_blank" style="display: inline-block; background: rgba(255,255,255,0.15); color: white; text-decoration: none; padding: 0.8rem 2rem; border-radius: 25px; font-weight: 600; transition: all 0.3s;">💬 Discord 社区</a>
-                </div>
-            </div>
-
-            <!-- OpenClaw 快速入门 -->
-            <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.08); margin-bottom: 1.5rem;">
-                <h3 style="font-size: 1.4rem; color: #333; margin-bottom: 1rem;">🚀 快速开始（3步部署）</h3>
-                <div style="background: #1a1a2e; color: #e0e0e0; border-radius: 8px; padding: 1.5rem; font-family: 'Consolas', 'Fira Code', monospace; font-size: 0.9rem; line-height: 2; overflow-x: auto;">
-                    <p style="color: #888;"># 1. 安装（需要 Node.js ≥ 22）</p>
-                    <p><span style="color: #e94560;">$</span> npm install -g openclaw@latest</p>
-                    <br>
-                    <p style="color: #888;"># 2. 运行引导向导</p>
-                    <p><span style="color: #e94560;">$</span> openclaw onboard --install-daemon</p>
-                    <br>
-                    <p style="color: #888;"># 3. 开始聊天！</p>
-                    <p><span style="color: #e94560;">$</span> openclaw message send --to "你的号码" --message "Hello from OpenClaw 🦞"</p>
-                </div>
-            </div>
-
-            <!-- OpenClaw 相关新闻 -->
-            <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
-                <h3 style="font-size: 1.4rem; color: #333; margin-bottom: 1rem;">📰 OpenClaw 最新动态</h3>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="padding: 0.8rem 0; border-bottom: 1px solid #eee;">
-                        <strong style="color: #e94560;">2026.3.9</strong> — v2026.3.7-beta.1 发布，引入 ContextEngine 上下文引擎，大幅提升长对话记忆能力
-                        <a href="https://www.epsilla.com/blogs/2026-03-09-openclaw-2026-3-7-contextengine-agentic-architecture" target="_blank" style="color: #667eea; text-decoration: none; float: right;">详情 →</a>
-                    </li>
-                    <li style="padding: 0.8rem 0; border-bottom: 1px solid #eee;">
-                        <strong style="color: #e94560;">2026.2.14</strong> — 创始人 Peter Steinberger 宣布加入 OpenAI，开源社区热议
-                        <a href="https://www.nxcode.io/resources/news/openclaw-complete-guide-2026" target="_blank" style="color: #667eea; text-decoration: none; float: right;">详情 →</a>
-                    </li>
-                    <li style="padding: 0.8rem 0; border-bottom: 1px solid #eee;">
-                        <strong style="color: #e94560;">2026</strong> — OpenClaw ACP 协议桥接 IDE，实现编码智能体无缝集成
-                        <a href="https://dev.to/czmilo/2026-complete-guide-openclaw-acp-bridge-your-ide-to-ai-agents-3hl8" target="_blank" style="color: #667eea; text-decoration: none; float: right;">详情 →</a>
-                    </li>
-                    <li style="padding: 0.8rem 0;">
-                        <strong style="color: #e94560;">2026</strong> — 支持 20+ 聊天平台，ClawHub 技能生态持续壮大
-                        <a href="https://pacgenesis.com/what-is-openclaw-ai-everything-you-need-to-know-about-the-open-source-ai-agent-that-actually-does-things" target="_blank" style="color: #667eea; text-decoration: none; float: right;">详情 →</a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <section id="about" class="fade-in">
-            <h2 class="section-title">关于IT宝网</h2>
-            <div style="background: white; border-radius: 10px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
-                <p style="margin-bottom: 1rem; color: #666;">IT宝网致力于为科技爱好者、开发者和行业从业者提供最新、最全面的AI技术资讯和工具资源。我们关注人工智能领域的前沿动态，分享实用的技术解决方案，助力您在AI时代保持竞争力。</p>
-                <p style="color: #666;">我们的使命是成为连接技术与应用的桥梁，推动人工智能技术的普及和应用创新。</p>
             </div>
         </section>
     </main>
 
-    <!-- 页脚 -->
     <footer>
-        <div class="container footer-content">
-            <div class="logo" style="font-size: 2rem; margin-bottom: 1rem;">IT宝网</div>
-            <p style="color: #ccc; max-width: 600px; margin: 0 auto 2rem;">探索人工智能前沿，引领科技未来</p>
-            
-            <ul class="footer-links">
-                <li><a href="#news">AI热点</a></li>
-                <li><a href="#tools">AI工具</a></li>
-                <li><a href="#openclaw">🦞 OpenClaw</a></li>
-                <li><a href="#about">关于我们</a></li>
-                <li><a href="#">隐私政策</a></li>
-                <li><a href="#">使用条款</a></li>
-            </ul>
-            
-            <div class="copyright">
-                <p>© 2026 IT宝网 版权所有 | 致力于AI技术传播与应用</p>
-            </div>
+        <div class="container">
+            <div>© 2026 IT宝网 · AI热点精选</div>
         </div>
     </footer>
 
     <script>
-        // 平滑滚动效果
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // 添加滚动动画
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        // 观察所有章节
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // 更新日期显示
         function updateDate() {
             const now = new Date();
-            const options = { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric',
-                weekday: 'long'
-            };
-            const dateStr = now.toLocaleDateString('zh-CN', options);
-            document.querySelector('.date-display').textContent = dateStr;
+            const text = now.toLocaleDateString("zh-CN", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                weekday: "long"
+            });
+            document.getElementById("currentDate").textContent = text;
         }
 
-        // 页面加载完成后更新日期
-        document.addEventListener('DOMContentLoaded', updateDate);
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", (event) => {
+                event.preventDefault();
+                const targetId = anchor.getAttribute("href");
+                const target = document.querySelector(targetId);
+                if (target) {
+                    window.scrollTo({ top: target.offsetTop - 70, behavior: "smooth" });
+                }
+            });
+        });
+
+        updateDate();
     </script>
 </body>
 </html>
