@@ -6,14 +6,14 @@
     <title>IT宝网 - AI科技前沿</title>
     <style>
         :root {
-            --bg: #f3f6fb;
+            --bg: #f5f7fb;
             --card: #ffffff;
-            --text: #1b2430;
-            --muted: #5d6b82;
-            --primary: #4f67ff;
-            --primary-2: #6f42c1;
-            --border: #e6ebf3;
-            --shadow: 0 12px 30px rgba(20, 33, 61, 0.08);
+            --text: #101828;
+            --muted: #475467;
+            --primary: #2563eb;
+            --primary-2: #4f46e5;
+            --border: #e4e7ec;
+            --shadow: 0 10px 24px rgba(16, 24, 40, 0.08);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,7 +32,7 @@
         }
 
         header {
-            background: linear-gradient(140deg, #5a74ff 0%, #7a4ed3 100%);
+            background: linear-gradient(140deg, #1d4ed8 0%, #4f46e5 55%, #4338ca 100%);
             color: #fff;
             padding: 44px 0 52px;
         }
@@ -54,7 +54,7 @@
             gap: 10px;
             padding: 8px 14px;
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.14);
             font-size: 0.92rem;
         }
 
@@ -87,7 +87,7 @@
         }
 
         .nav-links a {
-            color: #32425c;
+            color: #344054;
             text-decoration: none;
             font-size: 0.95rem;
             padding: 6px 10px;
@@ -95,7 +95,7 @@
         }
 
         .nav-links a:hover {
-            background: #edf1ff;
+            background: #eff4ff;
             color: var(--primary);
         }
 
@@ -153,7 +153,7 @@
             align-items: center;
             gap: 8px;
             font-size: 0.86rem;
-            color: #7d8aa0;
+            color: #667085;
         }
 
         .news-meta a {
@@ -180,17 +180,17 @@
         .tool-link {
             display: block;
             text-decoration: none;
-            color: #243147;
+            color: #101828;
             border: 1px solid var(--border);
             border-radius: 10px;
             padding: 10px 12px;
-            background: #fbfcff;
+            background: #f9fafb;
             transition: all 0.2s ease;
         }
 
         .tool-link:hover {
-            border-color: #d7dfff;
-            background: #f2f5ff;
+            border-color: #c7d7fe;
+            background: #eff6ff;
             transform: translateY(-1px);
         }
 
@@ -200,16 +200,16 @@
         }
 
         .tool-desc {
-            color: #6d7990;
+            color: #667085;
             font-size: 0.84rem;
             margin-top: 3px;
         }
 
         .tip-card {
             margin-top: 14px;
-            background: #eef2ff;
-            border: 1px solid #dce4ff;
-            color: #32425c;
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            color: #344054;
             border-radius: 12px;
             padding: 12px 14px;
             font-size: 0.92rem;
@@ -219,9 +219,9 @@
             border-top: 1px solid var(--border);
             padding: 22px 0 34px;
             text-align: center;
-            color: #7a879b;
+            color: #667085;
             font-size: 0.9rem;
-            background: #f7f9fd;
+            background: #f8fafc;
         }
 
         @media (max-width: 768px) {
@@ -235,7 +235,7 @@
     <header>
         <div class="container hero">
             <h1>IT宝网 · AI热点与工具精选</h1>
-            <p>聚焦本周值得关注的 AI 产业动态和高频实用工具，减少噪音，快速掌握关键信息。</p>
+            <p>每天 3 分钟，读懂 AI 关键进展。</p>
             <div class="hero-meta">
                 <span>更新日期：</span>
                 <strong id="currentDate">2026年3月24日</strong>
@@ -262,56 +262,56 @@
             </div>
             <div class="news-grid">
                 <article class="news-card">
-                    <h3>微软将 Anthropic Claude 深度接入 Microsoft 365 Copilot</h3>
-                    <p>微软在 3 月更新中宣布将 Anthropic 模型能力引入 Copilot 生态，并推出可执行多步骤任务的 Copilot Cowork，企业级 AI 助手竞争进入“多模型+多智能体”阶段。</p>
+                    <h3>阿里达摩院发布玄铁 C950：RISC-V CPU首次原生支持千亿参数大模型</h3>
+                    <p>玄铁 C950 基于 RISC-V 体系，性能指标创纪录，并首次“原生支持”千亿参数大模型运行，配套向量/矩阵等 AI 计算加速能力，面向云计算、生成式 AI 与高端机器人等场景。</p>
                     <div class="news-meta">
-                        <span>Reuters / Tech Monitor</span>
-                        <a href="http://polling.reuters.com/business/microsoft-taps-anthropic-copilot-cowork-push-ai-agents-2026-03-09/" target="_blank">阅读原文</a>
+                        <span>新华网</span>
+                        <a href="http://www.news.cn/tech/20260324/fdc7c3b201074147a46b5ce6ad51045f/c.html" target="_blank">阅读原文</a>
                     </div>
                 </article>
 
                 <article class="news-card">
-                    <h3>OpenAI 发布 GPT-5.4，面向企业级推理与自动化场景</h3>
-                    <p>多家媒体披露 OpenAI 在 2026 年 3 月发布新一代模型 GPT-5.4，强调复杂任务推理、代码能力与企业工作流自动执行能力。</p>
+                    <h3>西湖大学发布“泰坦 o1”：机器人动作泛化大模型</h3>
+                    <p>泰坦 o1 搭载动作泛化相关模型体系，强调对机器人“新任务/新环境”的适配与泛化复刻；团队表示相比国际同行至少领先约 6 个月，并已应用于群控表演等示例场景。</p>
                     <div class="news-meta">
-                        <span>Fortune</span>
-                        <a href="https://fortune.com/2026/03/05/openai-new-model-gpt5-4-enterprise-agentic-anthropic" target="_blank">阅读原文</a>
+                        <span>AIBase</span>
+                        <a href="https://news.aibase.cn/news/26491" target="_blank">阅读原文</a>
                     </div>
                 </article>
 
                 <article class="news-card">
-                    <h3>NVIDIA 发布 Vera Rubin 平台，主打高吞吐低成本推理</h3>
-                    <p>NVIDIA 公布新一代 Vera Rubin AI 平台，覆盖训练与推理基础设施，面向大规模智能体和企业部署场景。</p>
-                    <div class="news-meta">
-                        <span>VentureBeat</span>
-                        <a href="http://venturebeat.com/ai/nvidia-introduces-vera-rubin-a-seven-chip-ai-platform-with-openai-anthropic" target="_blank">阅读原文</a>
-                    </div>
-                </article>
-
-                <article class="news-card">
-                    <h3>NVIDIA 开源 Physical AI Data Factory Blueprint</h3>
-                    <p>面向机器人、自动驾驶和视觉智能体的数据工厂参考架构发布，降低物理世界 AI 训练数据生成与管理门槛。</p>
-                    <div class="news-meta">
-                        <span>NVIDIA Newsroom</span>
-                        <a href="https://nvidianews.nvidia.com/news/nvidia-announces-open-physical-ai-data-factory-blueprint-to-accelerate-robotics-vision-ai-agents-and-autonomous-vehicle-development/" target="_blank">阅读原文</a>
-                    </div>
-                </article>
-
-                <article class="news-card">
-                    <h3>英伟达 Nemotron 3 系列模型发布，聚焦企业级智能体场景</h3>
-                    <p>2026 年 3 月发布的 Nemotron 3 相关模型强调代码、工具调用、多智能体协同等企业应用能力。</p>
+                    <h3>OpenAI 向 PE 提供更优条件争夺企业 AI：与 Anthropic 竞争加剧</h3>
+                    <p>相关报道指出，OpenAI 在企业级市场布局中通过更优回报与模型优先使用权等方式吸引投资者，以分担定制化模型的高成本，并为后续业务结构与资本运作做铺垫。</p>
                     <div class="news-meta">
                         <span>新浪财经</span>
-                        <a href="https://finance.sina.com.cn/jjxw/2026-03-12/doc-inhqsnwu5041272.shtml" target="_blank">阅读原文</a>
+                        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-03-24/doc-inhsaeyy1833413.shtml" target="_blank">阅读原文</a>
                     </div>
                 </article>
 
                 <article class="news-card">
-                    <h3>华为昇腾新一代 AI 加速卡发布，国产算力生态持续扩张</h3>
-                    <p>媒体报道显示新一代昇腾产品围绕大模型训练与推理场景优化性能与成本，国产 AI 基础设施竞争力继续提升。</p>
+                    <h3>NVIDIA 整合 Groq 收购成果：Groq 3 LPX 推理加速器发布</h3>
+                    <p>报道称，Groq 3 LPX 采用更偏向低延迟的推理路径，强调语言处理单元能力与低成本高吞吐特性，并与更大规模 AI 基础设施战略协同，面向代理式/实时应用场景。</p>
                     <div class="news-meta">
-                        <span>新浪新闻</span>
-                        <a href="https://www.sina.cn/news/detail/5279346530194442.html" target="_blank">阅读原文</a>
+                        <span>Yahoo</span>
+                        <a href="https://tw.stock.yahoo.com/news/%E8%BC%9D%E9%81%9C%E9%81%94200%E5%84%84%E7%BE%8E%E5%85%83%E6%94%B6%E7%99%BC%E5%8%8F%E7%9B%AE%E6%96%B0%E6%99%B6%E7%89%87%E6%9C%89%E6%9C%9B%E9%87%8D%E5%A1%A1%E9%BB%9E%E6%8E%A8%E4%BF%AE%E5%B8%82%E5%A0%B4-155706446.html" target="_blank">阅读原文</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <h3>国家数据局定调：AI 计量单位 Token 正式中文名为“词元”</h3>
+                    <p>2026 年 3 月 24 日相关报道显示，国家数据局在官方语境下将 Token 的中文名定为“词元”。同时，行业数据指向“词元经济”正快速放大大模型使用规模与基础设施需求。</p>
+                    <div class="news-meta">
+                        <span>新华网</span>
+                        <a href="https://www.news.cn/tech/20260324/050774b26bc54f429fce2d21e284949a/c.html" target="_blank">阅读原文</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <h3>OpenAI 将对微软依赖列为潜在风险：算力合作与企业AI布局关注度上升</h3>
+                    <p>相关文件披露指出，OpenAI 将对微软的依赖列为经营潜在风险，并强调这是常规法律披露；同时市场关注微软在算力与资本合作中的关键地位。</p>
+                    <div class="news-meta">
+                        <span>STCN</span>
+                        <a href="https://www.stcn.com/article/detail/3694327.html" target="_blank">阅读原文</a>
                     </div>
                 </article>
             </div>
