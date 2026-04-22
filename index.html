@@ -58,6 +58,42 @@
             font-size: 0.92rem;
         }
 
+        .top-search {
+            margin-bottom: 18px;
+        }
+
+        .top-search form {
+            display: flex;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 999px;
+            padding: 8px 10px 8px 16px;
+        }
+
+        .top-search input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .top-search input::placeholder {
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .top-search button {
+            border: none;
+            border-radius: 999px;
+            padding: 8px 16px;
+            background: #ffffff;
+            color: #174ea6;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
         nav {
             position: sticky;
             top: 0;
@@ -125,6 +161,36 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
             gap: 14px;
+        }
+
+        .news-highlight {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            padding: 18px;
+            margin-bottom: 14px;
+        }
+
+        .news-highlight h3 {
+            font-size: 1.22rem;
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .news-highlight p {
+            color: var(--muted);
+            margin-bottom: 14px;
+        }
+
+        .chip {
+            display: inline-block;
+            background: #e8f0fe;
+            color: #174ea6;
+            font-size: 0.82rem;
+            padding: 3px 9px;
+            border-radius: 999px;
+            margin-bottom: 8px;
         }
 
         .news-card {
@@ -228,12 +294,21 @@
             .hero h1 { font-size: 1.6rem; }
             .nav-wrap { height: auto; padding: 10px 0; flex-direction: column; gap: 8px; }
             .nav-links { flex-wrap: wrap; justify-content: center; }
+            .top-search form { flex-direction: column; border-radius: 12px; }
+            .top-search button { width: 100%; }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container hero">
+            <div class="top-search">
+                <form action="https://www.google.com/search" method="get" target="_blank">
+                    <input type="text" name="q" placeholder="Google 搜索 AI 新闻（如：Gemma 4 / Anthropic）" required>
+                    <input type="hidden" name="tbm" value="nws">
+                    <button type="submit">Google 新闻搜索</button>
+                </form>
+            </div>
             <h1>IT宝网 · AI热点与工具精选</h1>
             <p>每天 3 分钟，读懂 AI 关键进展。</p>
             <div class="hero-meta">
@@ -248,8 +323,6 @@
             <a class="brand" href="#">IT宝网</a>
             <ul class="nav-links">
                 <li><a href="#news">AI热点</a></li>
-                <li><a href="#tools">精选工具</a></li>
-                <li><a href="#openclaw">OpenClaw 专题</a></li>
             </ul>
         </div>
     </nav>
@@ -260,147 +333,76 @@
                 <h2>AI热点新闻</h2>
                 <span>资讯优先 · 精简阅读</span>
             </div>
+            <article class="news-highlight">
+                <span class="chip">焦点</span>
+                <h3>04-16｜OpenAI 大幅升级 Codex，强化桌面级多智能体开发能力</h3>
+                <p>TechCrunch 报道 OpenAI 对 Codex 进行重要升级，支持更强的桌面端执行与并行任务能力，AI 编程工具竞争继续升温。</p>
+                <div class="news-meta">
+                    <span>来源：TechCrunch</span>
+                    <a href="https://techcrunch.com/2026/04/16/openai-takes-aim-at-anthropic-with-beefed-up-codex-that-gives-it-more-power-over-your-desktop/" target="_blank">阅读原文</a>
+                </div>
+                <h3>04-21｜苹果VS谷歌：从“分工默契”到“入口重叠”，AI彻底改写两大巨头格局</h3>
+                <p></p>
+                <div class="news-meta">
+                    <span>来源：Weixin公众号</span>
+                    <a href="https://mp.weixin.qq.com/s?__biz=MzU0MTk4NDc5Nw==&mid=2247483759&idx=1&sn=b83be2d7dc23f7fc8c84124d0bea5638&from=groupmessage&scene=1&subscene=10000&sessionid=1776825677&clicktime=1776827288&enterid=1776827288&ascene=1&devicetype=android-34&version=2800455e&nettype=ctnet&abtest_cookie=AAACAA%3D%3D&lang=zh_CN&countrycode=CN&exportkey=n_ChQIAhIQTNqyRKbc%2FAru%2Fajr43zCaBL3AQIE97dBBAEAAAAAAJF7F25i0b8AAAAOpnltbLcz9gKNyK89dVj0lAAnSIO68PrV6%2BOM%2FQ4rS0eZcwwSyOdlryQBNEtjFnM9my7hC2YO%2BfVLu%2B6qMLs7T48OD%2BEBAJswsHBdURUWswPCbYkYe4FGquapQLiFN08ysz6GBZW7G5FMGjB9RgWSBuL%2BCD7%2BEp8SsgoicetZszz90GT7Yr9PgSk8H2ernaTOHh3mbEt7TbIKeg6mCzw%2BrrI2fF8dVWLVk3TF1Muo6KBlYtw7MVC1eNRD4WkV2%2FU8EuSRpwG2VhfI5imi4qG4SIK%2FC5Ql2XwfqNIYgCL%2Bfcg%3D&pass_ticket=PxSM7XKOyMnsFGpoyoyselIX1jMzbOf%2B6s3wjHJtsL3kGUueHUjkzzkLbFgXKqwy&wx_header=3&poc_token=HKE76GmjeABipJk6pkUsadlhhc4ceVNi18I14_Ze" target="_blank">阅读原文</a>
+                </div>
+            </article>
+
             <div class="news-grid">
                 <article class="news-card">
-                    <h3>04-07｜Anthropic 扩大与 Google、Broadcom 的算力合作</h3>
-                    <p>Anthropic 宣布与 Google Cloud、Broadcom 深化合作，规划多吉瓦级下一代算力供给，以支撑 Claude 等企业服务持续增长。</p>
+                    <h3>04-14｜OpenAI 发布 GPT-5.4-Cyber，聚焦防御型网络安全场景</h3>
+                    <p>路透社报道称 OpenAI 推出面向防御安全研究的新模型版本，并通过分级机制向验证用户开放更高能力访问。</p>
                     <div class="news-meta">
-                        <span>Anthropic</span>
-                        <a href="https://www.anthropic.com/news/google-broadcom-partnership-compute" target="_blank">阅读原文</a>
+                        <span>来源：Reuters</span>
+                        <a href="https://www.reuters.com/technology/openai-unveils-gpt-54-cyber-week-after-rivals-announcement-ai-model-2026-04-14/" target="_blank">阅读原文</a>
                     </div>
                 </article>
 
                 <article class="news-card">
-                    <h3>04-07｜头部 AI 公司协作应对模型蒸馏与未授权复用风险</h3>
-                    <p>媒体报道 OpenAI、Anthropic、Google 等加强行业协作与信息共享，关注对抗性蒸馏与未授权利用 frontier 模型输出的行为。</p>
+                    <h3>04-16｜Anthropic 发布 Claude Opus 4.7，模型榜单竞争再升级</h3>
+                    <p>VentureBeat 报道 Anthropic 发布 Opus 4.7，在多项企业常用评测中提升表现，头部模型在“通用能力+场景能力”上的差距继续缩小。</p>
                     <div class="news-meta">
-                        <span>Silicon Valley</span>
-                        <a href="https://www.siliconvalley.com/2026/04/07/openai-anthropic-google-unite-to-combat-model-copying-in-china/" target="_blank">阅读原文</a>
+                        <span>来源：VentureBeat</span>
+                        <a href="https://venturebeat.com/technology/anthropic-releases-claude-opus-4-7-narrowly-retaking-lead-for-most-powerful-generally-available-llm" target="_blank">阅读原文</a>
                     </div>
                 </article>
 
                 <article class="news-card">
-                    <h3>04-07｜Anthropic 预览 Mythos 模型，面向安全防御场景</h3>
-                    <p>Anthropic 公布 Mythos 预览并与多家机构在安全方向合作测试，聚焦漏洞发现与防御侧能力，体现前沿模型在网络安全领域的落地探索。</p>
+                    <h3>04-08｜Meta 发布 Muse Spark，强调多智能体协作推理路径</h3>
+                    <p>Meta 推出 Muse Spark 并宣布后续将引入更复杂的推理模式，试图在下一阶段 AI 产品竞争中提升模型与应用协同效率。</p>
                     <div class="news-meta">
-                        <span>TechCrunch</span>
-                        <a href="https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/" target="_blank">阅读原文</a>
+                        <span>来源：TechCrunch</span>
+                        <a href="https://techcrunch.com/2026/04/08/meta-debuts-the-muse-spark-model-in-a-ground-up-overhaul-of-its-ai" target="_blank">阅读原文</a>
                     </div>
                 </article>
 
                 <article class="news-card">
-                    <h3>04-02｜Google 发布 Gemma 4 开源模型族</h3>
-                    <p>Gemma 4 面向高级推理与智能体工作流，提供多规格权重并以 Apache 2.0 发布，强调从边缘设备到工作站的广泛可部署性。</p>
+                    <h3>04-07｜Anthropic 扩大与 Google、Broadcom 的基础设施合作</h3>
+                    <p>Anthropic 宣布扩展算力合作协议，凸显模型公司在高增长阶段对稳定算力与供应链协同的持续需求。</p>
                     <div class="news-meta">
-                        <span>Google DeepMind</span>
-                        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/" target="_blank">阅读原文</a>
+                        <span>来源：TechCrunch</span>
+                        <a href="https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/" target="_blank">阅读原文</a>
                     </div>
                 </article>
 
                 <article class="news-card">
-                    <h3>04-03｜微软与谷歌同日推进多模态与基础模型更新</h3>
-                    <p>财经媒体汇总微软与谷歌在同一时间窗口内的模型与产品发布，语音、图像与开源能力同步迭代，企业部署选项继续丰富。</p>
+                    <h3>04-06｜Google 上线离线优先 AI 语音听写应用 Eloquent</h3>
+                    <p>Google 在 iOS 推出离线优先语音转写应用，显示端侧模型在高频办公与移动场景中的产品化节奏明显加快。</p>
                     <div class="news-meta">
-                        <span>新浪财经</span>
-                        <a href="https://finance.sina.com.cn/roll/2026-04-03/doc-inhteimh0503850.shtml" target="_blank">阅读原文</a>
+                        <span>来源：TechCrunch</span>
+                        <a href="https://techcrunch.com/2026/04/06/google-quietly-releases-an-offline-first-ai-dictation-app-on-ios/" target="_blank">阅读原文</a>
                     </div>
                 </article>
 
                 <article class="news-card">
-                    <h3>近期｜DeepSeek V4 发布动向受关注</h3>
-                    <p>媒体报道 DeepSeek 新一代模型推进长期记忆、编程与多模态等能力迭代，国产大模型在开源与闭源路线的竞争仍处高位。</p>
+                    <h3>04-16｜企业 AI 编程赛道升温：Factory 融资后估值达 15 亿美元</h3>
+                    <p>TechCrunch 报道 Factory 完成新一轮融资，企业工程团队的 AI 代码与代理化工具继续获得资本关注。</p>
                     <div class="news-meta">
-                        <span>新浪新闻</span>
-                        <a href="https://k.sina.com.cn/article_7857201856_1d45362c001904472g.html?from=tech" target="_blank">阅读原文</a>
+                        <span>来源：TechCrunch</span>
+                        <a href="https://techcrunch.com/2026/04/16/factory-hits-1-5b-valuation-to-build-ai-coding-for-enterprises/" target="_blank">阅读原文</a>
                     </div>
                 </article>
-            </div>
-        </section>
-        <section id="tools" class="section">
-            <div class="section-title">
-                <h2>精选AI工具</h2>
-                <span>国际主流优先 · 共 6 款</span>
-            </div>
-            <div class="tools-wrap">
-                <div class="tools-grid">
-                    <a class="tool-link" href="https://chat.openai.com" target="_blank">
-                        <div class="tool-name">ChatGPT</div>
-                        <div class="tool-desc">通用对话、写作与分析</div>
-                    </a>
-                    <a class="tool-link" href="https://claude.ai" target="_blank">
-                        <div class="tool-name">Claude</div>
-                        <div class="tool-desc">长文本理解与高质量写作</div>
-                    </a>
-                    <a class="tool-link" href="https://gemini.google.com" target="_blank">
-                        <div class="tool-name">Gemini</div>
-                        <div class="tool-desc">Google 生态整合能力强</div>
-                    </a>
-                    <a class="tool-link" href="https://www.perplexity.ai" target="_blank">
-                        <div class="tool-name">Perplexity</div>
-                        <div class="tool-desc">联网搜索与溯源问答</div>
-                    </a>
-                    <a class="tool-link" href="https://github.com/features/copilot" target="_blank">
-                        <div class="tool-name">GitHub Copilot</div>
-                        <div class="tool-desc">AI 编程助手</div>
-                    </a>
-                    <a class="tool-link" href="https://cursor.com" target="_blank">
-                        <div class="tool-name">Cursor</div>
-                        <div class="tool-desc">AI 原生代码编辑器</div>
-                    </a>
-                </div>
-                <div class="tip-card">
-                    工具已收敛为 6 款高频国际主流（对话、搜索、编程），后续可按季度轮换。
-                </div>
-            </div>
-        </section>
-
-        <section id="openclaw" class="section">
-            <div class="section-title">
-                <h2>OpenClaw 专题</h2>
-                <span>自托管 · 多平台接入 · 隐私优先</span>
-            </div>
-            <div class="tools-wrap">
-                <p style="color:#5d6b82; margin-bottom:12px;">
-                    OpenClaw 是一个开源 AI 智能体网关：把多聊天平台统一接入你的模型与工作流，在自有环境中运行，兼顾扩展性与数据控制权。
-                </p>
-                <div class="tip-card" style="margin-top:0; margin-bottom:12px;">
-                    适用人群：独立开发者、团队内部工具建设、私有化 AI 助手部署。
-                </div>
-                <div class="tools-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom:12px;">
-                    <div class="tool-link">
-                        <div class="tool-name">核心能力</div>
-                        <div class="tool-desc">统一接入 WhatsApp / Telegram / Discord 等平台，支持 Agent 工具调用。</div>
-                    </div>
-                    <div class="tool-link">
-                        <div class="tool-name">部署方式</div>
-                        <div class="tool-desc">支持本地与服务器部署，适合从个人到小团队逐步扩容。</div>
-                    </div>
-                    <div class="tool-link">
-                        <div class="tool-name">数据策略</div>
-                        <div class="tool-desc">会话与流程由你掌控，便于做隐私合规和企业内网接入。</div>
-                    </div>
-                </div>
-                <div class="tip-card" style="margin-top:0; margin-bottom:12px;">
-                    快速开始：1) 安装 OpenClaw 2) 绑定模型与聊天平台 3) 配置技能与自动化任务。
-                </div>
-                <div class="tools-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-                    <a class="tool-link" href="https://github.com/openclaw/openclaw" target="_blank">
-                        <div class="tool-name">GitHub 仓库</div>
-                        <div class="tool-desc">查看代码、版本与路线图</div>
-                    </a>
-                    <a class="tool-link" href="https://docs.openclaw.ai" target="_blank">
-                        <div class="tool-name">官方文档</div>
-                        <div class="tool-desc">安装、配置与使用指南</div>
-                    </a>
-                    <a class="tool-link" href="https://clawhub.com" target="_blank">
-                        <div class="tool-name">ClawHub</div>
-                        <div class="tool-desc">扩展技能市场</div>
-                    </a>
-                    <a class="tool-link" href="https://discord.gg/clawd" target="_blank">
-                        <div class="tool-name">社区交流</div>
-                        <div class="tool-desc">问题排查、经验分享与更新动态</div>
-                    </a>
-                </div>
             </div>
         </section>
     </main>
