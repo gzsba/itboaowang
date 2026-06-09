@@ -163,13 +163,19 @@
             gap: 14px;
         }
 
+        .news-highlight-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
         .news-highlight {
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 16px;
             box-shadow: var(--shadow);
             padding: 18px;
-            margin-bottom: 14px;
         }
 
         .news-highlight h3 {
@@ -296,6 +302,7 @@
             .nav-links { flex-wrap: wrap; justify-content: center; }
             .top-search form { flex-direction: column; border-radius: 12px; }
             .top-search button { width: 100%; }
+            .news-highlight-row { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -333,74 +340,80 @@
                 <h2>AI热点新闻</h2>
                 <span>资讯优先 · 精简阅读</span>
             </div>
-            <article class="news-highlight">
-                <span class="chip">焦点</span>
-                <h3>04-16｜OpenAI 大幅升级 Codex，强化桌面级多智能体开发能力</h3>
-                <p>TechCrunch 报道 OpenAI 对 Codex 进行重要升级，支持更强的桌面端执行与并行任务能力，AI 编程工具竞争继续升温。</p>
-                <div class="news-meta">
-                    <span>来源：TechCrunch</span>
-                    <a href="https://techcrunch.com/2026/04/16/openai-takes-aim-at-anthropic-with-beefed-up-codex-that-gives-it-more-power-over-your-desktop/" target="_blank">阅读原文</a>
-                </div>
-                <h3>04-21｜苹果VS谷歌：从“分工默契”到“入口重叠”，AI彻底改写两大巨头格局</h3>
-                <p></p>
-                <div class="news-meta">
-                    <span>来源：Weixin公众号</span>
-                    <a href="https://mp.weixin.qq.com/s?__biz=MzU0MTk4NDc5Nw==&mid=2247483759&idx=1&sn=b83be2d7dc23f7fc8c84124d0bea5638&from=groupmessage&scene=1&subscene=10000&sessionid=1776825677&clicktime=1776827288&enterid=1776827288&ascene=1&devicetype=android-34&version=2800455e&nettype=ctnet&abtest_cookie=AAACAA%3D%3D&lang=zh_CN&countrycode=CN&exportkey=n_ChQIAhIQTNqyRKbc%2FAru%2Fajr43zCaBL3AQIE97dBBAEAAAAAAJF7F25i0b8AAAAOpnltbLcz9gKNyK89dVj0lAAnSIO68PrV6%2BOM%2FQ4rS0eZcwwSyOdlryQBNEtjFnM9my7hC2YO%2BfVLu%2B6qMLs7T48OD%2BEBAJswsHBdURUWswPCbYkYe4FGquapQLiFN08ysz6GBZW7G5FMGjB9RgWSBuL%2BCD7%2BEp8SsgoicetZszz90GT7Yr9PgSk8H2ernaTOHh3mbEt7TbIKeg6mCzw%2BrrI2fF8dVWLVk3TF1Muo6KBlYtw7MVC1eNRD4WkV2%2FU8EuSRpwG2VhfI5imi4qG4SIK%2FC5Ql2XwfqNIYgCL%2Bfcg%3D&pass_ticket=PxSM7XKOyMnsFGpoyoyselIX1jMzbOf%2B6s3wjHJtsL3kGUueHUjkzzkLbFgXKqwy&wx_header=3&poc_token=HKE76GmjeABipJk6pkUsadlhhc4ceVNi18I14_Ze" target="_blank">阅读原文</a>
-                </div>
-            </article>
+            <div class="news-highlight-row">
+                <article class="news-highlight">
+                    <span class="chip">焦点</span>
+                    <h3>06-08｜OpenAI 发布 GPT-5.3-Codex，编程智能体能力再升级</h3>
+                    <p>OpenAI 推出新一代编程智能体模型，在软件工程与终端操作等评测中表现提升，Codex 从“写代码”向端到端任务执行延伸。</p>
+                    <div class="news-meta">
+                        <span>来源：36氪</span>
+                        <a href="https://36kr.com/p/3671506609529480" target="_blank">阅读原文</a>
+                    </div>
+                </article>
+
+                <article class="news-highlight">
+                    <span class="chip">焦点</span>
+                    <h3>04-21｜苹果 VS 谷歌：从“分工默契”到“入口重叠”</h3>
+                    <p>公众号深度文分析两大巨头在 AI 入口与生态上的竞合变化，讨论从协同分工走向能力重叠的产业趋势。</p>
+                    <div class="news-meta">
+                        <span>来源：微信公众号</span>
+                        <a href="https://mp.weixin.qq.com/s?__biz=MzU0MTk4NDc5Nw==&mid=2247483759&idx=1&sn=b83be2d7dc23f7fc8c84124d0bea5638" target="_blank">阅读原文</a>
+                    </div>
+                </article>
+            </div>
 
             <div class="news-grid">
                 <article class="news-card">
-                    <h3>04-14｜OpenAI 发布 GPT-5.4-Cyber，聚焦防御型网络安全场景</h3>
-                    <p>路透社报道称 OpenAI 推出面向防御安全研究的新模型版本，并通过分级机制向验证用户开放更高能力访问。</p>
-                    <div class="news-meta">
-                        <span>来源：Reuters</span>
-                        <a href="https://www.reuters.com/technology/openai-unveils-gpt-54-cyber-week-after-rivals-announcement-ai-model-2026-04-14/" target="_blank">阅读原文</a>
-                    </div>
-                </article>
-
-                <article class="news-card">
-                    <h3>04-16｜Anthropic 发布 Claude Opus 4.7，模型榜单竞争再升级</h3>
-                    <p>VentureBeat 报道 Anthropic 发布 Opus 4.7，在多项企业常用评测中提升表现，头部模型在“通用能力+场景能力”上的差距继续缩小。</p>
-                    <div class="news-meta">
-                        <span>来源：VentureBeat</span>
-                        <a href="https://venturebeat.com/technology/anthropic-releases-claude-opus-4-7-narrowly-retaking-lead-for-most-powerful-generally-available-llm" target="_blank">阅读原文</a>
-                    </div>
-                </article>
-
-                <article class="news-card">
-                    <h3>04-08｜Meta 发布 Muse Spark，强调多智能体协作推理路径</h3>
-                    <p>Meta 推出 Muse Spark 并宣布后续将引入更复杂的推理模式，试图在下一阶段 AI 产品竞争中提升模型与应用协同效率。</p>
+                    <h3>06-08｜OpenAI 秘密递交 IPO 文件，冲刺资本市场</h3>
+                    <p>OpenAI 已向 SEC 秘密提交上市相关文件，与 Anthropic 几乎同期推进 IPO，AI 头部公司资本化节奏明显加快。</p>
                     <div class="news-meta">
                         <span>来源：TechCrunch</span>
-                        <a href="https://techcrunch.com/2026/04/08/meta-debuts-the-muse-spark-model-in-a-ground-up-overhaul-of-its-ai" target="_blank">阅读原文</a>
+                        <a href="https://techcrunch.com/2026/06/08/following-anthropic-openai-files-confidentially-for-ipo/" target="_blank">阅读原文</a>
                     </div>
                 </article>
 
                 <article class="news-card">
-                    <h3>04-07｜Anthropic 扩大与 Google、Broadcom 的基础设施合作</h3>
-                    <p>Anthropic 宣布扩展算力合作协议，凸显模型公司在高增长阶段对稳定算力与供应链协同的持续需求。</p>
+                    <h3>06-01｜Anthropic 秘密递交 IPO 招股书</h3>
+                    <p>Anthropic 率先向 SEC 提交保密招股书，市场关注其高增速与企业客户收入结构能否支撑高估值预期。</p>
                     <div class="news-meta">
-                        <span>来源：TechCrunch</span>
-                        <a href="https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/" target="_blank">阅读原文</a>
+                        <span>来源：CNBC</span>
+                        <a href="https://www.cnbc.com/2026/06/01/anthropic-ipo-s1-prospectus.html" target="_blank">阅读原文</a>
                     </div>
                 </article>
 
                 <article class="news-card">
-                    <h3>04-06｜Google 上线离线优先 AI 语音听写应用 Eloquent</h3>
-                    <p>Google 在 iOS 推出离线优先语音转写应用，显示端侧模型在高频办公与移动场景中的产品化节奏明显加快。</p>
+                    <h3>06-09｜WWDC 2026：苹果重塑 Apple Intelligence 与 Siri AI</h3>
+                    <p>苹果在 WWDC 重点升级 Siri 与系统级 AI 能力，通过与谷歌 Gemini 等合作强化个人情境理解与跨应用执行。</p>
                     <div class="news-meta">
-                        <span>来源：TechCrunch</span>
-                        <a href="https://techcrunch.com/2026/04/06/google-quietly-releases-an-offline-first-ai-dictation-app-on-ios/" target="_blank">阅读原文</a>
+                        <span>来源：新浪财经</span>
+                        <a href="https://finance.sina.com.cn/jjxw/2026-06-09/doc-iniauefc5304207.shtml" target="_blank">阅读原文</a>
                     </div>
                 </article>
 
                 <article class="news-card">
-                    <h3>04-16｜企业 AI 编程赛道升温：Factory 融资后估值达 15 亿美元</h3>
-                    <p>TechCrunch 报道 Factory 完成新一轮融资，企业工程团队的 AI 代码与代理化工具继续获得资本关注。</p>
+                    <h3>06-03｜微软 Build 2026：连发 9 款自研模型与智能体应用</h3>
+                    <p>微软在 Build 大会发布 MAI 系列自研模型及多项 Agent 能力，继续强化“模型+平台+应用”一体化企业路线。</p>
                     <div class="news-meta">
-                        <span>来源：TechCrunch</span>
-                        <a href="https://techcrunch.com/2026/04/16/factory-hits-1-5b-valuation-to-build-ai-coding-for-enterprises/" target="_blank">阅读原文</a>
+                        <span>来源：36氪</span>
+                        <a href="https://36kr.com/p/3836988816094341" target="_blank">阅读原文</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <h3>06-08｜Anthropic 发布 Claude Opus 4.8</h3>
+                    <p>新版本支持算力/努力程度调节与动态工作流预览，在智能体编程等基准上继续提升，并与 GPT、Gemini 正面竞争。</p>
+                    <div class="news-meta">
+                        <span>来源：至顶网</span>
+                        <a href="https://ai.zhiding.cn/2026/0608/3189801.shtml" target="_blank">阅读原文</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <h3>06-03｜Codex 周活突破 500 万，企业插件能力上线</h3>
+                    <p>OpenAI 更新 Codex 插件、定点修改与文档转交互站点等功能，编程智能体在企业工作流中的渗透率持续走高。</p>
+                    <div class="news-meta">
+                        <span>来源：鉅亨網</span>
+                        <a href="https://news.cnyes.com/news/id/6483212" target="_blank">阅读原文</a>
                     </div>
                 </article>
             </div>
