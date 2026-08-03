@@ -348,24 +348,7 @@
             font-weight: 600;
             white-space: nowrap;
             transition: color 0.2s, transform 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 3px;
-        }
-
-        .news-card:hover .news-meta .read-more,
-        .news-highlight:hover .news-meta .read-more {
-            color: #c7d2fe;
-        }
-
-        .news-meta .read-more::after {
-            content: '→';
-            transition: transform 0.2s;
-        }
-
-        .news-card:hover .news-meta .read-more::after,
-        .news-highlight:hover .news-meta .read-more::after {
-            transform: translateX(3px);
+            display: none;
         }
 
         /* ========== Right: Scrolling News Ticker ========== */
