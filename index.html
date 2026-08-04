@@ -22,6 +22,57 @@
             --grad-3: linear-gradient(135deg, #f472b6 0%, #fbbf24 100%);
             --shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
             --glow: 0 0 40px rgba(99, 102, 241, 0.25);
+            --nav-bg: rgba(11, 16, 32, 0.8);
+            --footer-bg: rgba(0, 0, 0, 0.2);
+            --ticker-fade: rgba(15, 22, 41, 0.95);
+            --body-glow-1: rgba(99, 102, 241, 0.15);
+            --body-glow-2: rgba(217, 70, 239, 0.10);
+            --body-glow-3: rgba(34, 211, 238, 0.08);
+            --card-text: #f1f5f9;
+            --ticker-text: #e2e8f0;
+            --ticker-hover-text: #c7d2fe;
+            --news-meta-color: #64748b;
+            --search-bg: rgba(255, 255, 255, 0.05);
+            --meta-strong: #e0e7ff;
+            --hover-bg: rgba(99, 102, 241, 0.12);
+            --hover-text: #c7d2fe;
+            --ticker-hover-bg: rgba(99, 102, 241, 0.08);
+            --meta-border: rgba(255, 255, 255, 0.05);
+        }
+
+        [data-theme="light"] {
+            --bg: #f5f7fa;
+            --bg-2: #ffffff;
+            --card: rgba(255, 255, 255, 0.85);
+            --card-hover: rgba(255, 255, 255, 0.95);
+            --card-border: rgba(0, 0, 0, 0.08);
+            --text: #1a202c;
+            --muted: #64748b;
+            --primary: #6366f1;
+            --primary-2: #8b5cf6;
+            --accent: #0891b2;
+            --accent-2: #db2777;
+            --grad-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            --grad-2: linear-gradient(135deg, #0891b2 0%, #6366f1 100%);
+            --grad-3: linear-gradient(135deg, #db2777 0%, #f59e0b 100%);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            --glow: 0 0 40px rgba(99, 102, 241, 0.15);
+            --nav-bg: rgba(255, 255, 255, 0.85);
+            --footer-bg: rgba(0, 0, 0, 0.03);
+            --ticker-fade: rgba(245, 247, 250, 0.95);
+            --body-glow-1: rgba(99, 102, 241, 0.08);
+            --body-glow-2: rgba(217, 70, 239, 0.05);
+            --body-glow-3: rgba(34, 211, 238, 0.05);
+            --card-text: #1e293b;
+            --ticker-text: #334155;
+            --ticker-hover-text: #4f46e5;
+            --news-meta-color: #94a3b8;
+            --search-bg: rgba(0, 0, 0, 0.04);
+            --meta-strong: #4f46e5;
+            --hover-bg: rgba(99, 102, 241, 0.1);
+            --hover-text: #4f46e5;
+            --ticker-hover-bg: rgba(99, 102, 241, 0.06);
+            --meta-border: rgba(0, 0, 0, 0.06);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,9 +94,9 @@
             position: fixed;
             inset: 0;
             background:
-                radial-gradient(ellipse 80% 50% at 20% 0%, rgba(99, 102, 241, 0.15), transparent 60%),
-                radial-gradient(ellipse 60% 40% at 80% 10%, rgba(217, 70, 239, 0.10), transparent 60%),
-                radial-gradient(ellipse 50% 30% at 50% 100%, rgba(34, 211, 238, 0.08), transparent 60%);
+                radial-gradient(ellipse 80% 50% at 20% 0%, var(--body-glow-1), transparent 60%),
+                radial-gradient(ellipse 60% 40% at 80% 10%, var(--body-glow-2), transparent 60%),
+                radial-gradient(ellipse 50% 30% at 50% 100%, var(--body-glow-3), transparent 60%);
             pointer-events: none;
             z-index: 0;
         }
@@ -63,7 +114,7 @@
             position: sticky;
             top: 0;
             z-index: 20;
-            background: rgba(11, 16, 32, 0.8);
+            background: var(--nav-bg);
             backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--card-border);
         }
@@ -111,7 +162,7 @@
         }
 
         .nav-meta strong {
-            color: #e0e7ff;
+            color: var(--meta-strong);
             font-weight: 600;
         }
 
@@ -133,14 +184,14 @@
         }
 
         .nav-links a:hover {
-            background: rgba(99, 102, 241, 0.12);
-            color: #c7d2fe;
+            background: var(--hover-bg);
+            color: var(--hover-text);
         }
 
         .top-search form {
             display: flex;
             gap: 6px;
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--search-bg);
             border: 1px solid var(--card-border);
             border-radius: 10px;
             padding: 4px 4px 4px 12px;
@@ -171,6 +222,26 @@
             font-weight: 600;
             font-size: 0.82rem;
             cursor: pointer;
+        }
+
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            background: var(--search-bg);
+            color: var(--text);
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: border-color 0.2s, background 0.2s;
+            flex-shrink: 0;
+        }
+
+        .theme-toggle:hover {
+            border-color: rgba(99, 102, 241, 0.5);
         }
 
         /* ========== Main ========== */
@@ -323,7 +394,7 @@
             font-weight: 600;
             margin-bottom: 8px;
             line-height: 1.55;
-            color: #f1f5f9;
+            color: var(--card-text);
         }
 
         .news-card p {
@@ -338,9 +409,9 @@
             align-items: center;
             gap: 8px;
             font-size: 0.78rem;
-            color: #64748b;
+            color: var(--news-meta-color);
             padding-top: 10px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid var(--meta-border);
         }
 
         .news-meta .read-more {
@@ -422,12 +493,12 @@
 
         .ticker-wrap::before {
             top: 0;
-            background: linear-gradient(to bottom, rgba(15, 22, 41, 0.95), transparent);
+            background: linear-gradient(to bottom, var(--ticker-fade), transparent);
         }
 
         .ticker-wrap::after {
             bottom: 0;
-            background: linear-gradient(to top, rgba(15, 22, 41, 0.95), transparent);
+            background: linear-gradient(to top, var(--ticker-fade), transparent);
         }
 
         .ticker-track {
@@ -458,7 +529,7 @@
         }
 
         .ticker-item:hover {
-            background: rgba(99, 102, 241, 0.08);
+            background: var(--ticker-hover-bg);
             border-left-color: var(--primary);
             transform: translateX(2px);
         }
@@ -467,17 +538,17 @@
             font-size: 0.85rem;
             font-weight: 600;
             line-height: 1.5;
-            color: #e2e8f0;
+            color: var(--ticker-text);
             margin-bottom: 4px;
         }
 
         .ticker-item:hover .ticker-item-title {
-            color: #c7d2fe;
+            color: var(--ticker-hover-text);
         }
 
         .ticker-item-meta {
             font-size: 0.74rem;
-            color: #64748b;
+            color: var(--news-meta-color);
             display: none;
         }
 
@@ -488,7 +559,7 @@
             text-align: center;
             color: var(--muted);
             font-size: 0.85rem;
-            background: rgba(0, 0, 0, 0.2);
+            background: var(--footer-bg);
             position: relative;
             z-index: 1;
         }
@@ -536,9 +607,9 @@
                 <div class="nav-meta">
                     <strong id="currentDate">2026年8月3日</strong>
                 </div>
-                <ul class="nav-links">
-                    <li><a href="#news">AI热点</a></li>
-                </ul>
+                <button class="theme-toggle" id="themeToggle" title="切换主题" aria-label="切换主题">
+                    <span id="themeIcon">☀️</span>
+                </button>
             </div>
         </div>
     </nav>
@@ -552,7 +623,6 @@
                         <span class="title-bar"></span>
                         <h2>AI热点新闻</h2>
                     </div>
-                    <span>资讯优先 · 精简阅读</span>
                 </div>
                 <div class="news-highlight-row">
                     <a class="news-highlight" href="https://baijiahao.baidu.com/s?id=1872481071764678854" target="_blank">
@@ -648,7 +718,7 @@
 
     <footer>
         <div class="container">
-            <div>© 2026 <span class="brand-foot">IT宝网</span> · AI热点精选</div>
+            <div>© 2026 <span class="brand-foot">IT宝网</span></div>
         </div>
     </footer>
 
@@ -709,6 +779,27 @@
                     window.scrollTo({ top: target.offsetTop - 70, behavior: "smooth" });
                 }
             });
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        if (savedTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            themeIcon.textContent = '🌙';
+        }
+        themeToggle.addEventListener('click', () => {
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            if (isLight) {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.textContent = '☀️';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeIcon.textContent = '🌙';
+            }
         });
 
         updateDate();
