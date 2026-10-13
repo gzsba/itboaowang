@@ -1,0 +1,9 @@
+# Meta发布Muse Wonder前沿模型，首次对标全球顶级AI能力
+
+Meta公司10月12日发布Muse Wonder和Muse Wonder Full两款大语言模型，称其为迄今能力最强的AI模型。这是Meta超级智能实验室成立以来首次推出前沿级模型。
+
+两款模型在法律、金融、医疗及编程任务上实现领先性能，多项基准测试中与Fable 5.1和GPT-6 Astra表现相当。模型引入Active Memory技术，能够跨对话保留用户信息并在后续任务中调用，在MemoryBench持续学习基准上得分超过Fable、Opus和Astra。同时配备Active Focus功能，可在任务遇到困难时自主调整策略并持续推进。
+
+业内人士指出，此次发布是Meta自去年8月重组AI业务以来的重要里程碑。Muse Wonder通过Meta Model API提供服务，每百万输入tokens收费4美元，与GPT-6 Sol大致持平；Muse Wonder Full仅面向Muse Code订阅用户开放。
+
+分析人士认为，Meta此前主要发布轻量级模型，此次推出前沿模型表明其正加速追赶OpenAI和Anthropic，AI大模型竞争正从通用能力转向长程任务执行。
